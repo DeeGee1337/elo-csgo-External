@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="engine.cpp">
+      <Filter>csgo</Filter>
+    </ClCompile>
+    <ClCompile Include="vector.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="glow.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="aimbot.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="misc.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="aero-overlay\overlay.cpp">
+      <Filter>overlay</Filter>
+    </ClCompile>
+    <ClCompile Include="aero-overlay\direct2d\d2d_font.cpp">
+      <Filter>overlay\direct2d</Filter>
+    </ClCompile>
+    <ClCompile Include="aero-overlay\direct2d\d2d_surface.cpp">
+      <Filter>overlay\direct2d</Filter>
+    </ClCompile>
+    <ClCompile Include="visuals.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="time.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="netvars.cpp">
+      <Filter>csgo</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\CGui.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\CGuiBase.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\CGuiDraw.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\CGuiInput.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\icons.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="hash.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="menu_items.cpp">
+      <Filter>csgo</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="csgo.hpp">
+      <Filter>csgo</Filter>
+    </ClInclude>
+    <ClInclude Include="engine.hpp">
+      <Filter>csgo</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix.hpp">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.hpp">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="offsets.hpp">
+      <Filter>csgo</Filter>
+    </ClInclude>
+    <ClInclude Include="modules.hpp">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="aero-overlay\font.hpp">
+      <Filter>overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="aero-overlay\overlay.hpp">
+      <Filter>overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="aero-overlay\surface.hpp">
+      <Filter>overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="aero-overlay\utils\string_converter.hpp">
+      <Filter>overlay\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="aero-overlay\direct2d\d2d_font.hpp">
+      <Filter>overlay\direct2d</Filter>
+    </ClInclude>
+    <ClInclude Include="aero-overlay\direct2d\d2d_surface.hpp">
+      <Filter>overlay\direct2d</Filter>
+    </ClInclude>
+    <ClInclude Include="aero-overlay\direct2d\pre_include.hpp">
+      <Filter>overlay\direct2d</Filter>
+    </ClInclude>
+    <ClInclude Include="aero-overlay\core\api_status.hpp">
+      <Filter>overlay\core</Filter>
+    </ClInclude>
+    <ClInclude Include="aero-overlay\core\color.hpp">
+      <Filter>overlay\core</Filter>
+    </ClInclude>
+    <ClInclude Include="aero-overlay\core\requirements.hpp">
+      <Filter>overlay\core</Filter>
+    </ClInclude>
+    <ClInclude Include="time.hpp">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="netvars.hpp">
+      <Filter>csgo</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\CGui.hpp">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\CGuiBase.hpp">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\CGuiDraw.hpp">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\CGuiInput.hpp">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\icons.hpp">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="colors.hpp">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="hash.hpp">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="str_encrypt.hpp">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="menu_items.hpp">
+      <Filter>csgo</Filter>
+    </ClInclude>
+    <ClInclude Include="bsp_parser.hpp">
+      <Filter>bsp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="csgo">
+      <UniqueIdentifier>{ee75a741-659e-4f52-85f0-3227209ec6bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{55892b8e-9e62-4564-a5bd-f3af68dae6cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules">
+      <UniqueIdentifier>{3f2921d9-ead4-44a1-bb39-be83375daf82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="overlay">
+      <UniqueIdentifier>{fcbd1d4a-9c40-417b-b77e-7a797c30dbba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="overlay\core">
+      <UniqueIdentifier>{0fd96bc7-8cdb-450c-ade6-0d3d216eaab6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="overlay\direct2d">
+      <UniqueIdentifier>{a57427d0-641a-4a07-bf5d-619bf447d37e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="overlay\utils">
+      <UniqueIdentifier>{f2e0f95b-24da-4c04-9625-069abf2c59d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gui">
+      <UniqueIdentifier>{0ad2b2fb-b34f-4878-b528-baacf31b0478}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bsp">
+      <UniqueIdentifier>{1281e01c-8906-424c-98a6-0825e941dc4a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
