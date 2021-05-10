@@ -114,10 +114,8 @@ namespace modules
 
 		DWORD dwDrawColor = colors::Black;
 
-
 		cgui::fill_rect(box.rc.right + 10, box.rc.top, 3, box.getHeigth(), MAKE_ARGB(255, 75, 75, 75));
 		cgui::fill_rect(box.rc.right + 10, box.rc.bottom - hpBarLength, 3, hpBarLength, dwColor);
-
 
 		cgui::draw_rect_outline(box.rc.right + 10 - 1, box.rc.top - 1, 3 + 1, box.getHeigth() + 1, dwDrawColor);
 	}
@@ -271,10 +269,6 @@ namespace modules
 						int h = bbox.getHeigth();
 
 						draw_filled_box(bbox.rc.left, bbox.rc.top, w, h);
-					}
-					if (true)
-					{
-
 					}
 					if (g_items.espHealth)
 					{					

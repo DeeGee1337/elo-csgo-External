@@ -344,6 +344,12 @@ DWORD __stdcall visible_cache_update(LPVOID)
 
 int main(int argc, char** argv)
 {
+	system("title ELO-NEGER");
+	printf("        _         \n");
+	printf("      >(.)__      \n");
+	printf("______ (___/  ENTE\n\n\n");
+	system("Color 0C");
+
 	if (!bootstrap())
 	{
 		getchar();
