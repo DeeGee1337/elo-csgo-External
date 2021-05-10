@@ -26,6 +26,7 @@ namespace modules
 		g_items.espSkeleton = 1;
 		g_items.espBox = 1;
 		g_items.espHealth = 1;
+		g_items.espArmor = 1;
 		g_items.espPlayers = 1;
 		//g_items.espName = 1;
 		g_items.aimbotDrawFOV = 1;
@@ -119,7 +120,13 @@ namespace modules
 		cgui::auto_checkbox(&esp_tab, CGUI_STR("Show Team"), &g_items.espPlayersTeam);
 		cgui::auto_checkbox(&esp_tab, CGUI_STR("Name"), &g_items.espName);
 		cgui::auto_checkbox(&esp_tab, CGUI_STR("2D Box"), &g_items.espBox);
+
+		cgui::auto_checkbox(&esp_tab, CGUI_STR("2D Box filled"), &g_items.espBoxFilled); //test
+
 		cgui::auto_checkbox(&esp_tab, CGUI_STR("Health"), &g_items.espHealth);
+
+		cgui::auto_checkbox(&esp_tab, CGUI_STR("Armor"), &g_items.espArmor);
+
 		cgui::auto_checkbox(&esp_tab, CGUI_STR("Skeleton"), &g_items.espSkeleton);
 	
 

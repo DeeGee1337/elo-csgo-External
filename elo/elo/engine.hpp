@@ -332,6 +332,7 @@ std::string				read_string_ptr(uintptr_t address, size_t len);
 bool					is_ingame();
 uintptr_t				get_entity_list();
 int						get_health(uintptr_t entity);
+int						get_armor(uintptr_t entity);
 bool					is_dormant(uintptr_t entity);
 uintptr_t				get_entity(uintptr_t entity_list, int index);
 int						get_team(uintptr_t entity);

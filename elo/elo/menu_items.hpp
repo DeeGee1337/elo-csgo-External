@@ -10,9 +10,11 @@ struct Items
 	int espPlayersTeam;
 	int espSkeleton;
 	int espBox;
+	int espBoxFilled;
 	int espDistance;
 	int espWeapon;
 	int espHealth;
+	int espArmor;
 	int espName;
 	int espMaxDistance;
 	int espRadar2DDrawOutRanged;
@@ -26,7 +28,6 @@ struct Items
 	int espRadar2D;
 	int espGrenade;
 	int espMapRadar;
-
 
 	int espRadar;
 

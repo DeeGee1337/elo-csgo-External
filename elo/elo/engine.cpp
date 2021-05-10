@@ -53,6 +53,11 @@ int get_health(uintptr_t entity)
 	return read<int>(entity + hazedumper::netvars::m_iHealth);
 }
 
+int get_armor(uintptr_t entity)
+{
+	return read<int>(entity + hazedumper::netvars::m_ArmorValue);
+}
+
 bool is_ingame()
 {
 	auto client_state = read_pointer(g_csgo.engine + hazedumper::signatures::dwClientState);

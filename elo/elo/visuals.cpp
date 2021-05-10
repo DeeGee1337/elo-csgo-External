@@ -84,8 +84,6 @@ namespace modules
 		else
 			dwColor = 0xFFFF0000;
 
-
-
 		int hpBarLength = health * (box.getHeigth()) / 100;
 
 		DWORD dwDrawColor = colors::Black;
@@ -96,6 +94,32 @@ namespace modules
 
 
 		cgui::draw_rect_outline(box.rc.right + 5 - 1, box.rc.top - 1, 3 + 1, box.getHeigth() + 1, dwDrawColor);
+	}
+
+	void draw_armor(BBox& box, int armor)
+	{
+		DWORD dwColor = colors::DeepSkyBlue;
+
+		if (armor > 100)
+			armor = 100;
+
+		if (armor > 75)
+			dwColor = MAKE_ARGB(200, 0, 191, 255);
+		else if (armor > 40)
+			dwColor = MAKE_ARGB(150, 0, 191, 255);
+		else
+			dwColor = MAKE_ARGB(255, 0, 191, 255);
+
+		int hpBarLength = armor * (box.getHeigth()) / 100;
+
+		DWORD dwDrawColor = colors::Black;
+
+
+		cgui::fill_rect(box.rc.right + 10, box.rc.top, 3, box.getHeigth(), MAKE_ARGB(255, 75, 75, 75));
+		cgui::fill_rect(box.rc.right + 10, box.rc.bottom - hpBarLength, 3, hpBarLength, dwColor);
+
+
+		cgui::draw_rect_outline(box.rc.right + 10 - 1, box.rc.top - 1, 3 + 1, box.getHeigth() + 1, dwDrawColor);
 	}
 	
 	void sound_esp()
@@ -130,6 +154,14 @@ namespace modules
 				}
 			}
 		}
+	}
+
+	void draw_filled_box(int x, int y, int w, int h)
+	{
+		int wlen = (w);
+		int hlen = (h);
+
+		cgui::fill_rect(x, y, wlen, hlen, MAKE_ARGB(100, 240, 248, 255));
 	}
 
 	void draw_corner_box(int x, int y, int w, int h, DWORD drawColor)
@@ -190,6 +222,10 @@ namespace modules
 				if (hp <= 0)
 					continue;
 
+				auto armor = get_armor(entity);
+				if (armor <= 0)
+					continue;
+
 				if (player->team == g_csgo.local_team)
 					continue;
 
@@ -229,9 +265,24 @@ namespace modules
 						draw_corner_box(bbox.rc.left + 1, bbox.rc.top + 1, w - 2, h - 2, colors::Black);*/
 						draw_corner_box(bbox.rc.left, bbox.rc.top, w, h, color);
 					}
+					if (g_items.espBoxFilled)
+					{
+						int w = bbox.getWidth();
+						int h = bbox.getHeigth();
+
+						draw_filled_box(bbox.rc.left, bbox.rc.top, w, h);
+					}
+					if (true)
+					{
+
+					}
 					if (g_items.espHealth)
 					{					
 						draw_health(bbox, hp);
+					}
+					if (g_items.espArmor)
+					{
+						draw_armor(bbox, armor);
 					}
 					
 					auto fov = modules::get_fov_crosshair(entity, get_bone_position(entity, 8));
