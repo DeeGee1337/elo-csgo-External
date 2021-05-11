@@ -2,6 +2,7 @@
 #include "csgo.hpp"
 #include "GUI/CGuiInput.hpp"
 #include "colors.hpp"
+#include "xorstr.hpp"
 #include <atomic>
 #include <vector>
 
@@ -185,7 +186,7 @@ namespace modules
 		cgui::draw_line(x + w, y + h, x + w - wlen, y + h, drawColor, thickness);
 		cgui::draw_line(x + w, y + h, x + w, y + h - hlen, drawColor, thickness);
 	}
-	const char* ranks[] = { "Unranked", "Silver I", "Silver II", "Silver III", "Silver IV", "Silver Elite", "Silver Elite Master", "Gold Nova I", "Gold Nova II", "Gold Nova III", "Gold Nova Elite", "Master Guardian I", "Master Guardian II", "Master Guardian Elite", "Distinguished Master Guardian", "Legendary Eagle", "Legendary Eagle Master", "Supreme Master First Class", "The Global Elite" };
+	const char* ranks[] = { xorstr_("Unranked"), xorstr_("Silver I"), xorstr_("Silver II"), xorstr_("Silver III"), xorstr_("Silver IV"), xorstr_("Silver Elite"), xorstr_("Silver Elite Master"), xorstr_("Gold Nova I"), xorstr_("Gold Nova II"), xorstr_("Gold Nova III"), xorstr_("Gold Nova Elite"), xorstr_("Master Guardian I"), xorstr_("Master Guardian II"), xorstr_("Master Guardian Elite"), xorstr_("Distinguished Master Guardian"), xorstr_("Legendary Eagle"), xorstr_("Legendary Eagle Master"), xorstr_("Supreme Master First Class"), xorstr_("The Global Elite") };
 
 	const char* player_rank(int index) 
 	{
@@ -254,14 +255,24 @@ namespace modules
 						int w = bbox.getWidth();
 						int h = bbox.getHeigth();
 
-						auto color = colors::DeepSkyBlue;
+						auto color = colors::DXCRed;
+						auto colorVis = colors::WhiteSmoke;
+						//auto colorInvis = colors::DeepSkyBlue;
 
-						if (entity == g_csgo.target_lock)
-							color = colors::WhiteSmoke;
+						//if (entity == g_csgo.target_lock)
+						//	color = colors::WhiteSmoke;
 
 						/*draw_corner_box(bbox.rc.left - 1, bbox.rc.top - 1, w + 2, h + 2, colors::Black);
 						draw_corner_box(bbox.rc.left + 1, bbox.rc.top + 1, w - 2, h - 2, colors::Black);*/
-						draw_corner_box(bbox.rc.left, bbox.rc.top, w, h, color);
+
+						if (is_visible_trace(entity, {}))
+						{
+							draw_corner_box(bbox.rc.left, bbox.rc.top, w, h, colorVis);
+						}
+						else
+						{
+							draw_corner_box(bbox.rc.left, bbox.rc.top, w, h, color);
+						}
 					}
 					if (g_items.espBoxFilled)
 					{
@@ -316,10 +327,10 @@ namespace modules
 			g_csgo.verdana_font = g_csgo.surface->add_font("verdana_normal", "Verdana", 12.0f);
 
 			if (!g_csgo.surface)
-				throw std::runtime_error("cant create surface");
+				throw std::runtime_error(xorstr_("cant create surface"));
 
 			if (!g_csgo.verdana_font)
-				throw std::runtime_error("failed to create font");
+				throw std::runtime_error(xorstr_("failed to create font"));
 		}
 		g_has_result = true;
 

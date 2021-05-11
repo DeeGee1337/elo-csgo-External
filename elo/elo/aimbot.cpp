@@ -1,6 +1,7 @@
 #include "engine.hpp"
 #include "csgo.hpp"
 #include "GUI/CGuiInput.hpp"
+#include "xorstr.hpp"
 
 namespace modules
 {
@@ -258,54 +259,54 @@ namespace modules
 	void sanity_check_angles(const vec3& angles)
 	{
 		if (angles.x > 89.0f || angles.x < -89.0f)
-			throw std::runtime_error("tried to set invalid viewangles.x");
+			throw std::runtime_error(xorstr_("tried to set invalid viewangles.x"));
 
 		if (angles.y > 180.0f || angles.y < -180.0f)
-			throw std::runtime_error("tried to set invalid viewangles.y");
+			throw std::runtime_error(xorstr_("tried to set invalid viewangles.y"));
 
 		if (angles.z != 0.0f)
-			throw std::runtime_error("tried to set invalid roll");
+			throw std::runtime_error(xorstr_("tried to set invalid roll"));
 
 		if (isnan(angles.x))
-			throw std::runtime_error("tried to set nan viewangles.x");
+			throw std::runtime_error(xorstr_("tried to set nan viewangles.x"));
 
 		if (isnan(angles.y))
-			throw std::runtime_error("tried to set nan viewangles.y");
+			throw std::runtime_error(xorstr_("tried to set nan viewangles.y"));
 
 		if (isinf(angles.x))
-			throw std::runtime_error("tried to set inf viewangles.x");
+			throw std::runtime_error(xorstr_("tried to set inf viewangles.x"));
 
 		if (isinf(angles.y))
-			throw std::runtime_error("tried to set inf viewangles.y");
+			throw std::runtime_error(xorstr_("tried to set inf viewangles.y"));
 	}
 	float max_fov = 0.0f;
 
 	void draw_fov()
 	{
-		g_csgo.surface->text(200.0f, 80.0f, g_csgo.verdana_font, aero::color(255, 255, 0, 255), "Lock 0x%X",g_csgo.target_lock);
+		g_csgo.surface->text(5.0f, 55.0f, g_csgo.verdana_font, aero::color(255, 255, 255, 255), xorstr_("Lock 0x%X"),g_csgo.target_lock);
 
 		bool has_pistol = get_weapon_type(g_csgo.local_weapon) == wpn_category_pistol;
 		bool has_sniper = g_csgo.local_weapon == weapon_scout || g_csgo.local_weapon == weapon_awp || g_csgo.local_weapon == weapon_ssg08;
 		if (has_pistol)
 		{
-			g_csgo.surface->text(400.0f, 120.0f, g_csgo.verdana_font, aero::color(255, 255, 0, 255), "Pistol Aim");
+			g_csgo.surface->text(5.0f, 40.0f, g_csgo.verdana_font, aero::color(255, 255, 255, 255), xorstr_("Pistol Aim"));
 		}
 		else if(has_sniper)
 		{
-			g_csgo.surface->text(400.0f, 120.0f, g_csgo.verdana_font, aero::color(255, 255, 0, 255), "Sniper Aim");
+			g_csgo.surface->text(5.0f, 40.0f, g_csgo.verdana_font, aero::color(255, 255, 255, 255), xorstr_("Sniper Aim"));
 		}
 		else
 		{
-			g_csgo.surface->text(400.0f, 120.0f, g_csgo.verdana_font, aero::color(255, 255, 0, 255), "Rifle Aim");
+			g_csgo.surface->text(5.0f, 40.0f, g_csgo.verdana_font, aero::color(255, 255, 255, 255), xorstr_("Rifle Aim"));
 		}
 		
 		if (g_items.aimbotEnabled[0])
 		{
-			g_csgo.surface->text(400.0f, 100.0f, g_csgo.verdana_font, aero::color(255, 255, 0, 255), "[F1] Aimbot ON");
+			g_csgo.surface->text(5.0f, 25.0f, g_csgo.verdana_font, aero::color(255, 255, 255, 255), xorstr_("[F1] Aimbot ON"));
 		}
 		else
 		{
-			g_csgo.surface->text(400.0f, 100.0f, g_csgo.verdana_font, aero::color(255, 0, 0, 255), "[F1] Aimbot OFF");
+			g_csgo.surface->text(5.0f, 25.0f, g_csgo.verdana_font, aero::color(255, 0, 0, 255), xorstr_("[F1] Aimbot OFF"));
 		}
 
 		if (cgui::is_key_down_once(VK_F1)) {

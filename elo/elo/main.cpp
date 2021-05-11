@@ -12,12 +12,13 @@
 #include "modules.hpp"
 #include "csgo.hpp"
 #include "bsp_parser.hpp"
+#include "xorstr.hpp"
 csgo g_csgo;
 
 bool bootstrap()
 {
 
-	printf("waiting for csgo...\n");
+	printf(xorstr_("waiting for csgo...\n"));
 
 	do
 	{
@@ -34,11 +35,11 @@ bool bootstrap()
 	g_csgo.process_handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, g_csgo.process_id);
 	if (g_csgo.process_handle == nullptr)
 	{
-		printf("failed to open process\n");
+		printf(xorstr_("failed to open process\n"));
 		return false;
 	}
 
-	printf("waiting for csgo window...\n");
+	printf(xorstr_("waiting for csgo window...\n"));
 
 	do
 	{
@@ -49,7 +50,7 @@ bool bootstrap()
 		Sleep(1000);
 	} while (!g_csgo.window);
 
-	printf("initializing modules...\n");
+	printf(xorstr_("initializing modules...\n"));
 
 
 	while (!g_csgo.client)
@@ -58,7 +59,7 @@ bool bootstrap()
 		if (g_csgo.client)
 			break;
 
-		printf("failed to find client.dll\n");
+		printf(xorstr_("failed to find client.dll\n"));
 		Sleep(1000);
 	}
 
@@ -68,15 +69,15 @@ bool bootstrap()
 		if (g_csgo.engine)
 			break;
 
-		printf("failed to find engine.dll\n");
+		printf(xorstr_("failed to find engine.dll\n"));
 		Sleep(1000);
 	}
 
 
-	printf("csgo pid: %i\n", g_csgo.process_id);
-	printf("csgo wnd: 0x%p\n", g_csgo.window);
-	printf("client.dll @ 0x%x\n", g_csgo.client);
-	printf("engine.dll @ 0x%x\n", g_csgo.engine);
+	printf(xorstr_("csgo pid: %i\n"), g_csgo.process_id);
+	printf(xorstr_("csgo wnd: 0x%p\n"), g_csgo.window);
+	printf(xorstr_("client.dll @ 0x%x\n"), g_csgo.client);
+	printf(xorstr_("engine.dll @ 0x%x\n"), g_csgo.engine);
 
 	while (!g_csgo.local_player)
 	{
@@ -84,10 +85,10 @@ bool bootstrap()
 		Sleep(100);
 	}
 
-	printf("local_player @ 0x%x\n", g_csgo.local_player);
+	printf(xorstr_("local_player @ 0x%x\n"), g_csgo.local_player);
 	g_csgo.client_state = get_client_state_ptr();
 
-	printf("client_state @ 0x%x\n", g_csgo.client_state);
+	printf(xorstr_("client_state @ 0x%x\n"), g_csgo.client_state);
 	return true;
 }
 
@@ -263,17 +264,17 @@ DWORD __stdcall visible_cache_update(LPVOID)
 		auto map_path = get_map_path();
 
 		if (map_path != old_map_path) {
-			printf("loading map %s%s\n", game_dir.c_str(), map_path.c_str());
+			printf(xorstr_("loading map %s%s\n"), game_dir.c_str(), map_path.c_str());
 
 			g_csgo.bsp = std::make_unique<rn::bsp_parser>();
 			if (!g_csgo.bsp->load_map(game_dir, map_path))
 			{
-				printf("failed to load map\n");
+				printf(xorstr_("failed to load map\n"));
 				getchar();
 				return 1;
 			}
 			old_map_path = map_path;
-			printf("map loaded successfully\n");
+			printf(xorstr_("map loaded successfully\n"));
 		}
 
 
@@ -344,11 +345,11 @@ DWORD __stdcall visible_cache_update(LPVOID)
 
 int main(int argc, char** argv)
 {
-	system("title ELO-NEGER");
-	printf("        _         \n");
-	printf("      >(.)__      \n");
-	printf("______ (___/  ENTE\n\n\n");
-	system("Color 0C");
+	system(xorstr_("title ELO-NEGER"));
+	printf(xorstr_("        _         \n"));
+	printf(xorstr_("      >(.)__      \n"));
+	printf(xorstr_("______ (___/  ENTE\n\n\n"));
+	system(xorstr_("Color 0C"));
 
 	if (!bootstrap())
 	{
@@ -364,12 +365,12 @@ int main(int argc, char** argv)
 	auto status = modules::aero_status();
 	if (status != aero::api_status::success) 
 	{
-		printf("failed to initialize overlay");
+		printf(xorstr_("failed to initialize overlay"));
 		getchar();
 		return 1;
 	}
 
-	printf("waiting for game initialization...\n");
+	printf(xorstr_("waiting for game initialization...\n"));
 
 	do 
 	{
@@ -379,7 +380,7 @@ int main(int argc, char** argv)
 	CreateThread(0, 0, visible_cache_update, 0, 0, 0);
 
 
-	printf("starting modules...\n");
+	printf(xorstr_("starting modules...\n"));
 
 	modules::start_glow();
 	modules::start_aimbot();

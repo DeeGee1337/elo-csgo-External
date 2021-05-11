@@ -47,19 +47,19 @@ namespace modules
 
 		if (is_visible_trace(entity, {}))
 		{
-			entity_glow_object.a = (float)g_items.xray2a / 255.0f;
-			entity_glow_object.r = (float)g_items.xray2r / 255.0f;
-			entity_glow_object.g = (float)g_items.xray2g / 255.0f;
-			entity_glow_object.b = (float)g_items.xray2b / 255.0f;
+			entity_glow_object.a = (float)g_items.xray1a / 255.0f;
+			entity_glow_object.r = (float)g_items.xray1r / 255.0f;
+			entity_glow_object.g = (float)g_items.xray1g / 255.0f;
+			entity_glow_object.b = (float)g_items.xray1b / 255.0f;
 		}
 		else
 		{
 			if(sound_emitted)
 			{
-				entity_glow_object.a = (float)255.0f / 255.0f;
-				entity_glow_object.r = (float)255.0f / 255.0f;
-				entity_glow_object.g = (float)255.0f / 255.0f;
-				entity_glow_object.b = (float)0.0f;
+				entity_glow_object.a = (float)g_items.xray2a / 255.0f;
+				entity_glow_object.r = (float)g_items.xray2r / 255.0f;
+				entity_glow_object.g = (float)g_items.xray2g / 255.0f;
+				entity_glow_object.b = (float)g_items.xray2b / 255.0f;
 			}
 			else
 			{

@@ -145,6 +145,9 @@
     <ClInclude Include="bsp_parser.hpp">
       <Filter>bsp</Filter>
     </ClInclude>
+    <ClInclude Include="xorstr.hpp">
+      <Filter>utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="csgo">
