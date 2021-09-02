@@ -70,7 +70,7 @@ namespace modules
 
 
 
-		cgui::window(&gui_wnd, CGUI_STR(xorstr_("elo-neger BIFI & MIKE EDITION")), 500, 350, 490, 600);//+60
+		cgui::window(&gui_wnd, CGUI_STR(xorstr_("elusion braucht CHEATS!")), 500, 350, 490, 600);//+60
 
 		const auto half_width = cgui::calc_width_pct(&gui_wnd, 0.5f);
 		const auto full_height = cgui::calc_height_pct(&gui_wnd, 1.0f);
@@ -138,6 +138,7 @@ namespace modules
 		cgui::auto_checkbox(&esp_tab, CGUI_STR(xorstr_("Hitmarker")), &g_items.espDrawHitmarker);
 		cgui::auto_checkbox(&esp_tab, CGUI_STR(xorstr_("Hitmarker Sound")), &g_items.espHitmarkerSound);
 		cgui::auto_checkbox(&esp_tab, CGUI_STR(xorstr_("Bunnyhop")), &g_items.bhop);
+		/*cgui::auto_checkbox(&esp_tab, CGUI_STR(xorstr_("Radarhack")), &g_items.radarhack);*/
 
 		cgui::auto_slider(&esp_tab, CGUI_STR(xorstr_("Glow Visible A")), 0, 255, " ", &g_items.xray1a);
 		cgui::auto_slider(&esp_tab, CGUI_STR(xorstr_("Glow Visible R")), 0, 255, " ", &g_items.xray1r);

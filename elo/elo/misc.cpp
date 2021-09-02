@@ -56,6 +56,25 @@ namespace modules
 		}
 	}
 
+	/*void radarhack()
+	{
+		if (!g_items.radarhack)
+			return;
+
+		if (g_csgo.local_player)
+		{
+			for (short int i = 0; i < 64; i++)
+			{
+				auto entity = read<uint8_t>(g_csgo.client + hazedumper::signatures::dwEntityList);
+
+				if (entity != NULL)
+				{
+					write<bool>(entity + hazedumper::netvars::m_bSpotted, true);
+				}
+			}
+		}
+	}*/
+
 	void trigger()
 	{
 		if (!g_items.triggerbot)
@@ -190,6 +209,7 @@ namespace modules
 
 			bhop();
 			trigger();
+			//radarhack();
 			Sleep(10);
 		}
 

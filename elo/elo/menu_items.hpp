@@ -65,6 +65,7 @@ struct Items
 	int miscSave;
 	int miscLoad;
 
+	/*int radarhack;*/
 
 	int espLine;
 
