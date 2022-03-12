@@ -43,7 +43,7 @@ bool bootstrap()
 
 	do
 	{
-		g_csgo.window = FindWindowA("Valve001", "Counter-Strike: Global Offensive");
+		g_csgo.window = FindWindowA("Valve001", "Counter-Strike: Global Offensive - Direct3D 9");
 		if (g_csgo.window)
 			break;
 

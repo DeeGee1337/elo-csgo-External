@@ -449,6 +449,7 @@ namespace modules
 				sanity_check_angles(detail::view_angles);
 
 				//printf("write angle...\n");
+				//constexpr ::std::ptrdiff_t dwClientState_ViewAngles = 0x4D90;
 				write<vec3>(g_csgo.client_state + hazedumper::signatures::dwClientState_ViewAngles, detail::view_angles);
 			}
 
